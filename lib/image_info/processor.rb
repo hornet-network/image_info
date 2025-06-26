@@ -8,7 +8,7 @@ module ImageInfo
   class Processor
     attr_reader :images, :options
 
-    def initialize(urls, options = { max_concurrency: ::ImageInfo.config.max_concurrency, http_open_timeout: ::ImageInfo.config.http_open_timeout, http_read_timeout: ::ImageInfo.config.http_read_timeout })
+    def initialize(urls, options = { max_concurrency: ::ImageInfo.config.max_concurrency, http_open_timeout: ::ImageInfo.config.http_open_timeout, http_read_timeout: ::ImageInfo.config.http_read_timeout, redirect_limit: ::ImageInfo.config.redirect_limit})
       @images  = Array(urls).map { |uri| ::ImageInfo::Image.new(uri) }.keep_if(&:valid?)
       @options = options
     end

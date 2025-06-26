@@ -11,7 +11,7 @@ module ImageInfo
     end
 
     def build
-      ::Typhoeus::Request.new(image.uri.to_s, followlocation: true, accept_encoding: :gzip, timeout: options[:http_read_timeout], connecttimeout: options[:http_open_timeout]).tap do |request|
+      ::Typhoeus::Request.new(image.uri.to_s, followlocation: true, accept_encoding: :gzip, timeout: options[:http_read_timeout], connecttimeout: options[:http_open_timeout], maxredirs: options[:redirect_limit]).tap do |request|
         request.on_body do |chunk|
           buffer.write(chunk)
           buffer.rewind

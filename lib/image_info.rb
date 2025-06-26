@@ -20,6 +20,7 @@ module ImageInfo
     options[:max_concurrency] ||= config.max_concurrency
     options[:http_open_timeout] ||= config.http_open_timeout
     options[:http_read_timeout] ||= config.http_read_timeout
+    options[:redirect_limit] ||= config.redirect_limit
     ::ImageInfo::Processor.new(urls, options).process
   end
 end
