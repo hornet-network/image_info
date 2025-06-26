@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added redirect_limit, http_open_timeout & http_read_timeout configuration [\#11](https://github.com/gottfrois/image_info/pull/11) ([SixiS](https://github.com/SixiS)
+
 ## [1.2.2] - 2020-10-06
 ### Fixed
 
