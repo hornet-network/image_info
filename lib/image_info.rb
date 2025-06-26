@@ -16,7 +16,10 @@ module ImageInfo
   #    => [:png, :jpeg]
   #
   # @return [Array<ImageInfo::Image>]
-  def self.from(urls, options = { max_concurrency: config.max_concurrency, http_open_timeout: config.http_open_timeout, http_read_timeout: config.http_read_timeout })
+  def self.from(urls, options = {})
+    options[:max_concurrency] ||= config.max_concurrency
+    options[:http_open_timeout] ||= config.http_open_timeout
+    options[:http_read_timeout] ||= config.http_read_timeout
     ::ImageInfo::Processor.new(urls, options).process
   end
 end
